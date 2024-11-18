@@ -5,6 +5,8 @@ import {
   deleteProductCategory,
 } from "@/utility/utility";
 import { defineStore } from "pinia";
+import { useToast } from "vue-toastification";
+const toast = useToast();
 
 export const useCategoryStore = defineStore("categoryStore", {
   state: () => ({
@@ -22,6 +24,8 @@ export const useCategoryStore = defineStore("categoryStore", {
     async createProductCategory(category) {
       try {
         const response = await addProdcutCategory(category);
+        toast.success(response.data.message);
+
         this.categories.push(response.data.product);
       } catch (error) {
         console.error("Failed while creating category", error);
@@ -30,6 +34,7 @@ export const useCategoryStore = defineStore("categoryStore", {
     async updateProductCategory(category) {
       try {
         const fetchResponse = await updateProductCategory(category);
+        toast.success(fetchResponse.data.message);
         const index = this.categories.findIndex((p) => category.id === p._id);
         if (index !== -1) {
           this.categories.splice(index, 1, fetchResponse.data.productCategory);
@@ -40,7 +45,8 @@ export const useCategoryStore = defineStore("categoryStore", {
     },
     async removeProductCategory(id) {
       try {
-        await deleteProductCategory(id);
+        const response = await deleteProductCategory(id);
+        toast.success(response.data.message);
         this.categories = this.categories.filter(
           (category) => category._id !== id
         );

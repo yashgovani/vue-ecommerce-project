@@ -82,16 +82,23 @@ const onEditProductHandler = (product) => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in categories" :key="product._id">
-          <td>{{ product._id }}</td>
+        <tr v-for="(product, index) in categories" :key="product._id">
+          <td>{{ index }}</td>
           <td>{{ product.title }}</td>
           <td>{{ product.imageUrl }}</td>
           <td>{{ product.size ?? "-" }}</td>
-          <td @click="onEditProductHandler(product)">
-            <font-awesome-icon :icon="['fas', 'pen-to-square']" />
+          <td>
+            <v-btn @click="onEditProductHandler(product)">
+              <font-awesome-icon :icon="['fas', 'pen-to-square']" />
+            </v-btn>
           </td>
-          <td @click="category.removeProductCategory(product._id)">
-            <font-awesome-icon :icon="['fas', 'trash']" />
+          <td>
+            <v-btn
+              class="delete-button"
+              @click="category.removeProductCategory(product._id)"
+            >
+              <font-awesome-icon :icon="['fas', 'trash']" />
+            </v-btn>
           </td>
         </tr>
       </tbody>
@@ -135,7 +142,9 @@ const onEditProductHandler = (product) => {
         <v-spacer></v-spacer>
         <!-- Close button for the dialog -->
         <v-btn text @click="onModalCloseHandler">Close</v-btn>
-        <v-btn text @click="onSubmitHandler">Submit</v-btn>
+        <v-btn text class="delete-button" @click="onSubmitHandler"
+          >Submit</v-btn
+        >
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -157,6 +166,15 @@ button {
   font-weight: bold;
   border-radius: 8px;
 }
+
+.edit-button {
+  background-color: #ee6c4d;
+}
+
+.delete-button {
+  background-color: #293241;
+}
+
 .v-table {
   border-radius: 8px;
   margin: 10px 2% 0px 2%;
