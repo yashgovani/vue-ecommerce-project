@@ -179,12 +179,6 @@ const onEditProductHandler = (product) => {
 </template>
 
 <style scoped>
-.header-item {
-  padding-top: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
 h2 {
   margin-left: 2%;
 }

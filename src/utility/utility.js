@@ -24,3 +24,6 @@ export const updateProducts = (product) =>
   apiClient.put(`/shop-items/${product.id}`, product);
 export const deleteProducts = (productId) =>
   apiClient.delete(`/shop-items/${productId}`);
+
+// dashboard api call
+export const fetchDashboardData = () => apiClient.get("/user/dashboard");

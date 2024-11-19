@@ -20,3 +20,10 @@ body {
   height: 85%;
   border-radius: 8px;
 }
+
+.header-item {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2%;
+}

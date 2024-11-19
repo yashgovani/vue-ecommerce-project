@@ -151,13 +151,6 @@ const onEditProductHandler = (product) => {
 </template>
 
 <style scoped>
-.header-item {
-  padding-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 2%;
-}
-
 button {
   background-color: #ee6c4d;
   color: #e0fbfc;
