@@ -4,8 +4,13 @@ import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
 
 const dashboardData = useDashboardStore();
-const { categoryDistribution, productCategoryCount, shopItemCount } =
-  storeToRefs(dashboardData);
+const {
+  categoryDistribution,
+  productCategoryCount,
+  shopItemCount,
+  orderCount,
+  userCount,
+} = storeToRefs(dashboardData);
 
 onMounted(() => {
   dashboardData.getDashboardData();
@@ -17,16 +22,28 @@ onMounted(() => {
       <h2>Dashboard</h2>
     </div>
     <v-row>
-      <v-col cols="12" md="6" sm="6">
+      <v-col cols="12" md="3" sm="6">
         <div class="card">
           <div>Product Category</div>
           <div>{{ productCategoryCount }}</div>
         </div>
       </v-col>
-      <v-col cols="12" md="6" sm="6">
+      <v-col cols="12" md="3" sm="6">
         <div class="card">
           <div>Shop Items</div>
           <div>{{ shopItemCount }}</div>
+        </div>
+      </v-col>
+      <v-col cols="12" md="3" sm="6">
+        <div class="card">
+          <div>Total Orders</div>
+          <div>{{ orderCount }}</div>
+        </div>
+      </v-col>
+      <v-col cols="12" md="3" sm="6">
+        <div class="card">
+          <div>Active Users</div>
+          <div>{{ userCount }}</div>
         </div>
       </v-col>
     </v-row>

@@ -6,6 +6,8 @@ export const useDashboardStore = defineStore("dashboardStore", {
   state: () => ({
     productCategoryCount: 0,
     shopItemCount: 0,
+    userCount: 0,
+    orderCount: 0,
     categoryDistribution: [],
   }),
   // Defining Actions
@@ -16,6 +18,8 @@ export const useDashboardStore = defineStore("dashboardStore", {
 
         this.productCategoryCount = fetchResponse.data.productCategoryCount;
         this.shopItemCount = fetchResponse.data.shopItemCount;
+        this.orderCount = fetchResponse.data.orderCount;
+        this.userCount = fetchResponse.data.userCount;
         this.categoryDistribution = [
           ...fetchResponse.data.categoryDistribution,
         ];

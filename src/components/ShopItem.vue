@@ -179,9 +179,9 @@ const onEditProductHandler = (product) => {
 </template>
 
 <style scoped>
-h2 {
+/* h2 {
   margin-left: 2%;
-}
+} */
 
 .v-table {
   border-radius: 8px;
@@ -208,7 +208,7 @@ th {
 }
 
 button {
-  margin-right: 2%;
+  /* margin-right: 2%; */
   background-color: #ee6c4d;
   color: #e0fbfc;
   padding: 8px;
